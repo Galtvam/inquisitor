@@ -107,7 +107,6 @@ def imprimir(dicionario):
     for pessoa in dicionario:
         print('{0} : {1}'.format(pessoa,dicionario[pessoa]))
 
-
 #-----------------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
