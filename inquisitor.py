@@ -1,3 +1,14 @@
+'''
+Univesidade Federal de Pernambuco -- UFPE (http://www.ufpe.br)
+Centro de Informatica -- CIn (http://www.cin.ufpe.br)
+Bacharelado em Sistemas de Informacao
+Autor:    Marcos Antonio Tavares Galvão
+Email:    matg@cin.ufpe.br
+Descricao:  Lista duplamente encadeada.
+Licenca: The MIT License (MIT)
+			Copyright(c) 2018 Marcos Antonio Tavares Galvão
+'''
+
 #-----------------------------------------------------------------------------------------------------
 #imports
 #-----------------------------------------------------------------------------------------------------
