@@ -1,0 +1,5 @@
+.idea
+__pycache__/
+classroom/ClassWorks/
+venv/
+classroom/token.json
