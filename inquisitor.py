@@ -111,7 +111,7 @@ def imprimir(dicionario):
 
 if __name__ == '__main__':
 	diretorio = os.listdir()
-	diretorio.remove("re_inq.py")
+	diretorio.remove(os.path.basename(__file__))
 	pessoasAndListas = abrirArq(diretorio)
 	repet = comparar(pessoasAndListas)
 	imprimir(repet)
