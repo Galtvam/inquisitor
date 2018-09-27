@@ -4,7 +4,6 @@ Centro de Informatica -- CIn (http://www.cin.ufpe.br)
 Bacharelado em Sistemas de Informacao
 Autor:    Marcos Antonio Tavares Galvão
 Email:    matg@cin.ufpe.br
-Descricao:  Lista duplamente encadeada.
 Licenca: The MIT License (MIT)
 			Copyright(c) 2018 Marcos Antonio Tavares Galvão
 '''
@@ -17,29 +16,33 @@ import os
 
 #----------------------------------------------------------------------------------------------------
 
-def abrirArq(diretorios):
+def abrirArq(alunos,local):
 	'''
-	retorna um dicionário, chave = Nome do diretório, contend = [[numero da lista , [linhas do código]],[numero da lista , [linhas do código]]
+	retorna um dicionario, chave = Nome do diretorio, contend = [[numero da lista , [linhas do codigo]],[numero da lista , [linhas do código]]
 	'''
 	listagem = []
 	dic = {}
-	for dir_or_arquivo in diretorios:
-		if os.path.isdir(dir_or_arquivo):
+	for dir_or_arquivo in alunos:
+		if os.path.isdir(local + dir_or_arquivo):
 			dic[dir_or_arquivo] = []
-			atividades = os.listdir(dir_or_arquivo)
+			atividades = os.listdir(local + dir_or_arquivo)
 			for arquivo in atividades:
-				arq = open(str(dir_or_arquivo)+'/'+str(arquivo),"r", encoding="utf8")
+				arq = open(local + dir_or_arquivo+'/'+str(arquivo),"r", encoding="utf8")
 				dic[dir_or_arquivo].append([str(arquivo[-8:-3]),arqToList(arq)])
 		else:
-			arq = open(dir_or_arquivo,"r", encoding="utf8")
+			arq = open(local+dir_or_arquivo,"r", encoding="utf8")
 			listagem.append(arqToList(arq))
 	return dic
 
+
 def arqToList(arquivo):
+	'''
+	recebe um arquivo como parametro e retorna uma lista contendo todas as linhas do codigo
+	'''
 	temp_list = arquivo.readlines()
 	list_final = []
 	for linha in range(len(temp_list)):
-		temp_list[linha] = temp_list[linha].replace(" ","")
+		#temp_list[linha] = temp_list[linha].replace(" ","")
 		temp_list[linha] = temp_list[linha].replace("\t","")
 		temp_list[linha] = temp_list[linha].replace("\n","")
 		for key, contend in enumerate(temp_list[linha]):
@@ -53,11 +56,16 @@ def arqToList(arquivo):
 	return list_final
 
 def comparar(dic):
+	'''
+	executa todo o processo de comparacao das listas de todos os alunos
+	checa listas iguais de todos e retorna um dicionario contendo a lista, nome do plagiador e porcentagem
+	'''
 	cmp = {}
 	verified = []
 	for pessoa1 in dic.keys():
 		cmp[pessoa1] = []
 		verified.append(pessoa1)
+		print("processing... ({0}/{1})".format(len(verified),len(dic)))
 		for lista_p1 in dic[pessoa1]:
 			for pessoa2 in dic.keys():
 				if pessoa2 is pessoa1 or pessoa2 in verified:
@@ -76,28 +84,31 @@ def comparar(dic):
 							tam = len(lista_p1[1]) if len(lista_p1[1]) > len(lista_p2[1]) else len(lista_p2[1])
 							igualdade = cont/tam
 							if igualdade >= 0.7:
-								cmp[pessoa1].append((lista_p1[0],(pessoa2, igualdade*100)))
+								cmp[pessoa1].append((lista_p1[0],(pessoa2, round(igualdade*100,2))))
 						else:
 							pass
 		if len(cmp[pessoa1]) == 0:
 			del cmp[pessoa1]
+	print('\n')
 	return cmp
 
 #-----------------------------------------------------------------------------------------------------
 #comparação strings
 #-----------------------------------------------------------------------------------------------------
+# algoritmo desenvolvido por Simon White
+#-----------------------------------------------------------------------------------------------------
 
 def get_bigrams(string):
 	"""
-	Take a string and return a list of bigrams.
+	recebe uma string e retorna uma lista contendo os bigramas.
 	"""
 	s = string.lower()
 	return [s[i:i+2] for i in list(range(len(s) - 1))]
 
 def string_similarity(str1, str2):
 	"""
-	Perform bigram comparison between two strings
-	and return a percentage match in decimal form.
+	realiza a comparacao entre os bigramas de duas string
+	retorna uma porcentagem de equivalencia entre os textos
 	"""
 	pairs1 = get_bigrams(str1)
 	pairs2 = get_bigrams(str2)
@@ -115,14 +126,39 @@ def string_similarity(str1, str2):
 #-----------------------------------------------------------------------------------------------------
 
 def imprimir(dicionario):
-    for pessoa in dicionario:
-        print('{0} : {1}'.format(pessoa,dicionario[pessoa]))
+	'''
+	imprime o dicionario resultante da comparacao
+	'''
+	for pessoa in dicionario:
+		print('{0} : {1}'.format(pessoa,dicionario[pessoa]))
 
+def acess_classwork():
+	'''
+	-lista ao usuário todos os diretorios de listas no destino /classroom/ClassWorks/
+	-solicita a escolha da lista para comparacao
+	-realiza a chamada das fuñcoes restantes para prosseguir a avaliacao
+	'''
+	diretorio = os.listdir("classroom/ClassWorks/")
+	aux = 0
+	print("Escolha uma opção de Lista: ")
+	option = []
+	for lista in diretorio:
+		print("{0} - {1}".format(aux, lista))
+		option.append(lista)
+		aux += 1
+	num_list = -1
+	try:
+		while num_list < 0 or num_list > aux-1:
+			num_list = int(input("option: "))
+		local = "classroom/ClassWorks/{0}/".format(option[num_list])
+		diretorio = os.listdir(local)
+		pessoasAndListas = abrirArq(diretorio,local)
+		repet = comparar(pessoasAndListas)
+		imprimir(repet)
+	except:
+		print("Error!!!")
+		acess_classwork()
 #-----------------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
-	diretorio = os.listdir()
-	diretorio.remove(os.path.basename(__file__))
-	pessoasAndListas = abrirArq(diretorio)
-	repet = comparar(pessoasAndListas)
-	imprimir(repet)
+	acess_classwork()

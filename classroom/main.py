@@ -6,7 +6,6 @@ IF969 - Algoritmos e Estrutura de Dados
 
 Autor: Igor Fernandes Carneiro (ifc)
 E-mail: ifc@cin.ufpe.br
-Data: 2018-09-22
 
 Copyright(c) 2018 Igor Fernandes Carneiro
 '''
