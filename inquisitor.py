@@ -13,6 +13,7 @@ Licenca: The MIT License (MIT)
 #-----------------------------------------------------------------------------------------------------
 
 import os
+from classroom.main import *
 
 #----------------------------------------------------------------------------------------------------
 
@@ -42,14 +43,14 @@ def arqToList(arquivo):
 	temp_list = arquivo.readlines()
 	list_final = []
 	for linha in range(len(temp_list)):
-		#temp_list[linha] = temp_list[linha].replace(" ","")
+		temp_list[linha] = temp_list[linha].replace(" ","")
 		temp_list[linha] = temp_list[linha].replace("\t","")
 		temp_list[linha] = temp_list[linha].replace("\n","")
 		for key, contend in enumerate(temp_list[linha]):
 			if contend is "#":  
 				temp_list[linha] = temp_list[linha][:key]
 				break
-		if temp_list[linha] is not "":
+		if len(temp_list[linha]) != 0:
 			list_final.append(temp_list[linha])    
 	if "'''" in list_final[0]:
 		list_final = list_final[6:]
@@ -129,8 +130,11 @@ def imprimir(dicionario):
 	'''
 	imprime o dicionario resultante da comparacao
 	'''
-	for pessoa in dicionario:
-		print('{0} : {1}'.format(pessoa,dicionario[pessoa]))
+	if len(dicionario) != 0:
+		for pessoa in dicionario:
+			print('{0} : {1}'.format(pessoa,dicionario[pessoa]))
+	else:
+		print("Não houveram cópias!")
 
 def acess_classwork():
 	'''
@@ -147,18 +151,38 @@ def acess_classwork():
 		option.append(lista)
 		aux += 1
 	num_list = -1
-	try:
-		while num_list < 0 or num_list > aux-1:
-			num_list = int(input("option: "))
-		local = "classroom/ClassWorks/{0}/".format(option[num_list])
-		diretorio = os.listdir(local)
-		pessoasAndListas = abrirArq(diretorio,local)
-		repet = comparar(pessoasAndListas)
-		imprimir(repet)
-	except:
-		print("Error!!!")
+	while num_list < 0 or num_list > aux-1:
+		num_list = int(input("option: "))
+	print("\n")
+	local = "classroom/ClassWorks/{0}/".format(option[num_list])
+	diretorio = os.listdir(local)
+	pessoasAndListas = abrirArq(diretorio,local)
+	repet = comparar(pessoasAndListas)
+	imprimir(repet)
+
+
+def chooseOption():
+	print("Bem-vindo \n1 - Baixar Listas \n2 - Inspecionar cópias \n3 - Sair")
+	option = 0
+	while option > 3 or option < 1:
+		try:
+			option = int(input("\n Escolha uma opção: "))
+		except:
+			print("Opção inválida!")
+	print("\n")
+	if option == 1:
+		PlagiarismCheckerApplication()
+		print("\n")
+		chooseOption()
+	elif option == 2:
 		acess_classwork()
+		print("\n")
+		chooseOption()
+	else:
+		print("Programa Finalizado!")
+		exit()
+
 #-----------------------------------------------------------------------------------------------------
 
 if __name__ == '__main__':
-	acess_classwork()
+	chooseOption()
