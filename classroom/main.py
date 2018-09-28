@@ -10,10 +10,10 @@ E-mail: ifc@cin.ufpe.br
 Copyright(c) 2018 Igor Fernandes Carneiro
 '''
 
-from classroom import Classroom
+from classroom.classroom import Classroom
 
 # Módulo para suprimir print dados por outros módulos
-from utils import supress_module_print, print, input, input_int
+from classroom.utils import supress_module_print, print, input, input_int
 
 from datetime import datetime
 
@@ -21,7 +21,7 @@ import httplib2
 import os
 
 class PlagiarismCheckerApplication:
-  __DOWNLOAD_DIR = "ClassWorks/"
+  __DOWNLOAD_DIR = "classroom/ClassWorks/"
 
   def __init__(self):
     supress_module_print()
@@ -130,7 +130,7 @@ class PlagiarismCheckerApplication:
     
     courseWorkIndex = input_int(
       "Escolha dentre as opções acima: ", 
-      1, len(courseWorks) - 1, 
+      1, len(courseWorks), 
       "Erro: Opção inválida!"
     )
 

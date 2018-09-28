@@ -19,8 +19,8 @@ import json
 import logging
 import time
 
-from oauth2client import _helpers
-from oauth2client import _pure_python_crypt
+from classroom.oauth2client import _helpers
+from classroom.oauth2client import _pure_python_crypt
 
 
 RsaSigner = _pure_python_crypt.RsaSigner

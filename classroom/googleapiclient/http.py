@@ -55,16 +55,16 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.nonmultipart import MIMENonMultipart
 from email.parser import FeedParser
 
-from googleapiclient import _helpers as util
+from classroom.googleapiclient import _helpers as util
 
-from googleapiclient import _auth
-from googleapiclient.errors import BatchError
-from googleapiclient.errors import HttpError
-from googleapiclient.errors import InvalidChunkSizeError
-from googleapiclient.errors import ResumableUploadError
-from googleapiclient.errors import UnexpectedBodyError
-from googleapiclient.errors import UnexpectedMethodError
-from googleapiclient.model import JsonModel
+from classroom.googleapiclient import _auth
+from classroom.googleapiclient.errors import BatchError
+from classroom.googleapiclient.errors import HttpError
+from classroom.googleapiclient.errors import InvalidChunkSizeError
+from classroom.googleapiclient.errors import ResumableUploadError
+from classroom.googleapiclient.errors import UnexpectedBodyError
+from classroom.googleapiclient.errors import UnexpectedMethodError
+from classroom.googleapiclient.model import JsonModel
 
 
 LOGGER = logging.getLogger(__name__)

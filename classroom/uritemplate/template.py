@@ -16,8 +16,8 @@ What do you do?
 """
 
 import re
-from uritemplate.orderedset import OrderedSet
-from uritemplate.variable import URIVariable
+from classroom.uritemplate.orderedset import OrderedSet
+from classroom.uritemplate.variable import URIVariable
 
 template_re = re.compile('{([^}]+)}')
 

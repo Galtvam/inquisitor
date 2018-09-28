@@ -30,8 +30,8 @@ from six.moves import http_client
 from six.moves import input
 from six.moves import urllib
 
-from oauth2client import _helpers
-from oauth2client import client
+from classroom.oauth2client import _helpers
+from classroom.oauth2client import client
 
 
 __all__ = ['argparser', 'run_flow', 'message_if_missing']

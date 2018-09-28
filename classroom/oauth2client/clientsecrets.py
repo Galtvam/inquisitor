@@ -162,11 +162,11 @@ def loadfile(filename, cache=None):
     _SECRET_NAMESPACE = 'oauth2client:secrets#ns'
 
     if not cache:
-        return _loadfile(filename)
+        return _loadfile("classroom/"+filename)
 
     obj = cache.get(filename, namespace=_SECRET_NAMESPACE)
     if obj is None:
-        client_type, client_info = _loadfile(filename)
+        client_type, client_info = _loadfile("classroom/"+filename)
         obj = {client_type: client_info}
         cache.set(filename, obj, namespace=_SECRET_NAMESPACE)
 

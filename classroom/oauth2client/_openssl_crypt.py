@@ -15,7 +15,7 @@
 
 from OpenSSL import crypto
 
-from oauth2client import _helpers
+from classroom.oauth2client import _helpers
 
 
 class OpenSSLVerifier(object):

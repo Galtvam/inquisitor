@@ -20,11 +20,11 @@ import datetime
 import json
 import time
 
-import oauth2client
-from oauth2client import _helpers
-from oauth2client import client
-from oauth2client import crypt
-from oauth2client import transport
+import classroom.oauth2client as oauth2client
+from classroom.oauth2client import _helpers
+from classroom.oauth2client import client
+from classroom.oauth2client import crypt
+from classroom.oauth2client import transport
 
 
 _PASSWORD_DEFAULT = 'notasecret'

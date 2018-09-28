@@ -18,7 +18,7 @@ from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
 from Crypto.Util.asn1 import DerSequence
 
-from oauth2client import _helpers
+from classroom.oauth2client import _helpers
 
 
 class PyCryptoVerifier(object):

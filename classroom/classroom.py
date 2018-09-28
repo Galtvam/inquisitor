@@ -11,15 +11,15 @@ Data: 2018-09-22
 Copyright(c) 2018 Igor Fernandes Carneiro
 '''
 
-from googleapiclient.discovery import build
+from classroom.googleapiclient.discovery import build
 from httplib2 import Http
-from apiclient.http import MediaIoBaseDownload
-from oauth2client import file, client, tools
+from classroom.googleapiclient.http import MediaIoBaseDownload
+from classroom.oauth2client import file, client, tools
 
 import io
 
 # TODO: Remover depois de concluir
-from utils import supress_module_print, print
+from classroom.utils import supress_module_print, print
 
 class Classroom:
   __SCOPES = (

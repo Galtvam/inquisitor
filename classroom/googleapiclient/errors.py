@@ -23,7 +23,7 @@ __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
 import json
 
-from googleapiclient import _helpers as util
+from classroom.googleapiclient import _helpers as util
 
 
 class Error(Exception):
