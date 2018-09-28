@@ -21,8 +21,8 @@ credentials.
 import os
 import threading
 
-from oauth2client import _helpers
-from oauth2client import client
+from classroom.oauth2client import _helpers
+from classroom.oauth2client import client
 
 
 class Storage(client.Storage):

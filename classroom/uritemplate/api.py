@@ -7,8 +7,8 @@ This module contains the very simple API provided by uritemplate.
 
 """
 
-from uritemplate.orderedset import OrderedSet
-from uritemplate.template import URITemplate
+from classroom.uritemplate.orderedset import OrderedSet
+from classroom.uritemplate.template import URITemplate
 
 
 def expand(uri, var_dict=None, **kwargs):

@@ -26,7 +26,7 @@ from pyasn1_modules.rfc5208 import PrivateKeyInfo
 import rsa
 import six
 
-from oauth2client import _helpers
+from classroom.oauth2client import _helpers
 
 
 _PKCS12_ERROR = r"""\

@@ -65,7 +65,7 @@ __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
 import copy
 
-from googleapiclient import _helpers as util
+from classroom.googleapiclient import _helpers as util
 
 
 class Schemas(object):

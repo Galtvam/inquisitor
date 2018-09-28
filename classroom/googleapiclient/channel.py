@@ -60,8 +60,8 @@ from __future__ import absolute_import
 import datetime
 import uuid
 
-from googleapiclient import errors
-from googleapiclient import _helpers as util
+from classroom.googleapiclient import errors
+from classroom.googleapiclient import _helpers as util
 import six
 
 

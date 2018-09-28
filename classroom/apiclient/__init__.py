@@ -2,21 +2,21 @@
 
 from six import iteritems
 
-import googleapiclient
+import classroom.googleapiclient as googleapiclient
 
-from googleapiclient import channel
-from googleapiclient import discovery
-from googleapiclient import errors
-from googleapiclient import http
-from googleapiclient import mimeparse
-from googleapiclient import model
+from classroom.googleapiclient import channel
+from classroom.googleapiclient import discovery
+from classroom.googleapiclient import errors
+from classroom.googleapiclient import http
+from classroom.googleapiclient import mimeparse
+from classroom.googleapiclient import model
 try:
-    from googleapiclient import sample_tools
+    from classroom.googleapiclient import sample_tools
 except ImportError:
     # Silently ignore, because the vast majority of consumers won't use it and
     # it has deep dependence on oauth2client, an optional dependency.
     sample_tools = None
-from googleapiclient import schema
+from classroom.googleapiclient import schema
 
 __version__ = googleapiclient.__version__
 

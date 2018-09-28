@@ -29,8 +29,8 @@ import logging
 
 from six.moves.urllib.parse import urlencode
 
-from googleapiclient import __version__
-from googleapiclient.errors import HttpError
+from classroom.googleapiclient import __version__
+from classroom.googleapiclient.errors import HttpError
 
 
 LOGGER = logging.getLogger(__name__)

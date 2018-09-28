@@ -50,31 +50,31 @@ import re
 
 # Third-party imports
 import httplib2
-import uritemplate
+import classroom.uritemplate as uritemplate
 
 # Local imports
-from googleapiclient import _auth
-from googleapiclient import mimeparse
-from googleapiclient.errors import HttpError
-from googleapiclient.errors import InvalidJsonError
-from googleapiclient.errors import MediaUploadSizeError
-from googleapiclient.errors import UnacceptableMimeTypeError
-from googleapiclient.errors import UnknownApiNameOrVersion
-from googleapiclient.errors import UnknownFileType
-from googleapiclient.http import build_http
-from googleapiclient.http import BatchHttpRequest
-from googleapiclient.http import HttpMock
-from googleapiclient.http import HttpMockSequence
-from googleapiclient.http import HttpRequest
-from googleapiclient.http import MediaFileUpload
-from googleapiclient.http import MediaUpload
-from googleapiclient.model import JsonModel
-from googleapiclient.model import MediaModel
-from googleapiclient.model import RawModel
-from googleapiclient.schema import Schemas
+from classroom.googleapiclient import _auth
+from classroom.googleapiclient import mimeparse
+from classroom.googleapiclient.errors import HttpError
+from classroom.googleapiclient.errors import InvalidJsonError
+from classroom.googleapiclient.errors import MediaUploadSizeError
+from classroom.googleapiclient.errors import UnacceptableMimeTypeError
+from classroom.googleapiclient.errors import UnknownApiNameOrVersion
+from classroom.googleapiclient.errors import UnknownFileType
+from classroom.googleapiclient.http import build_http
+from classroom.googleapiclient.http import BatchHttpRequest
+from classroom.googleapiclient.http import HttpMock
+from classroom.googleapiclient.http import HttpMockSequence
+from classroom.googleapiclient.http import HttpRequest
+from classroom.googleapiclient.http import MediaFileUpload
+from classroom.googleapiclient.http import MediaUpload
+from classroom.googleapiclient.model import JsonModel
+from classroom.googleapiclient.model import MediaModel
+from classroom.googleapiclient.model import RawModel
+from classroom.googleapiclient.schema import Schemas
 
-from googleapiclient._helpers import _add_query_parameter
-from googleapiclient._helpers import positional
+from classroom.googleapiclient._helpers import _add_query_parameter
+from classroom.googleapiclient._helpers import positional
 
 
 # The client library requires a version of httplib2 that supports RETRIES.

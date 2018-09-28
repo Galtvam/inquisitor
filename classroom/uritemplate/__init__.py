@@ -19,7 +19,7 @@ __copyright__ = 'Copyright 2013 Ian Cordasco'
 __version__ = '3.0.0'
 __version_info__ = tuple(int(i) for i in __version__.split('.') if i.isdigit())
 
-from uritemplate.api import (
+from classroom.uritemplate.api import (
     URITemplate, expand, partial, variables  # noqa: E402
 )
 

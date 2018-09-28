@@ -32,11 +32,11 @@ import six
 from six.moves import http_client
 from six.moves import urllib
 
-import oauth2client
-from oauth2client import _helpers
-from oauth2client import _pkce
-from oauth2client import clientsecrets
-from oauth2client import transport
+import classroom.oauth2client as oauth2client
+from classroom.oauth2client import _helpers
+from classroom.oauth2client import _pkce
+from classroom.oauth2client import clientsecrets
+from classroom.oauth2client import transport
 
 
 HAS_OPENSSL = False

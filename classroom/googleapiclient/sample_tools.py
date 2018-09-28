@@ -25,8 +25,8 @@ __all__ = ['init']
 import argparse
 import os
 
-from googleapiclient import discovery
-from googleapiclient.http import build_http
+from classroom.googleapiclient import discovery
+from classroom.googleapiclient.http import build_http
 
 try:
     from oauth2client import client
