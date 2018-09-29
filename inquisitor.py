@@ -42,6 +42,8 @@ def arqToList(arquivo):
 	'''
 	temp_list = arquivo.readlines()
 	list_final = []
+	flag_add = True
+	aux_count = 0
 	for linha in range(len(temp_list)):
 		temp_list[linha] = temp_list[linha].replace(" ","")
 		temp_list[linha] = temp_list[linha].replace("\t","")
@@ -50,10 +52,16 @@ def arqToList(arquivo):
 			if contend is "#":  
 				temp_list[linha] = temp_list[linha][:key]
 				break
-		if len(temp_list[linha]) != 0:
+		if "'''" in temp_list[linha] or '"""' in temp_list[linha]:
+			aux_count += 1
+			if aux_count == 2:
+				flag_add = True
+			else:
+				flag_add = False
+		if len(temp_list[linha]) != 0 and flag_add == True:
 			list_final.append(temp_list[linha])    
-	if "'''" in list_final[0]:
-		list_final = list_final[6:]
+	if list_final[0] == "'''" or list_final[0] == '"""':
+		del list_final[0]
 	return list_final
 
 def comparar(dic):
