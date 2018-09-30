@@ -18,11 +18,18 @@ from classroom.main import *
 #----------------------------------------------------------------------------------------------------
 
 class ComparisonLists:
+	'''
+	Esta classe e responsavel pela comparacao dos arquivos "Listas" enviadas pelos alunos do classroom
+	avaliando os bigramas das linhas e comparando-os com os dos demais alunos, resulta da chamada um dicionario
+	que contem nome do comparado e seus plagiadores, informando ademais, respectiva numeracao da lista e 
+	porcentagem de igualdade.
+	'''
 	def __init__(self):
 		'''
 		-lista ao usuário todos os diretorios de listas no destino /classroom/ClassWorks/
 		-solicita a escolha da lista para comparacao
-		-realiza a chamada das fuñcoes restantes para prosseguir a avaliacao
+		-realiza a chamada das funcoes restantes para prosseguir a avaliacao
+		-retorna um dicionario contendo o nome do comparador e os comparados com resultado acima de 70%
 		'''
 		diretorio = os.listdir("classroom/ClassWorks/")
 		aux = 0
@@ -43,7 +50,7 @@ class ComparisonLists:
 		ComparisonLists.__imprimir(self,repet)
 
 	#-----------------------------------------------------------------------------------------------------
-	#funcionalidades extra
+	#funcionalidades complementares
 	#-----------------------------------------------------------------------------------------------------
 
 	def __imprimir(self,dicionario):
@@ -58,7 +65,7 @@ class ComparisonLists:
 
 
 	#-----------------------------------------------------------------------------------------------------
-	# abertudra dos arquivos
+	# abertura dos arquivos
 	#-----------------------------------------------------------------------------------------------------
 
 	def __abrirArq(self,alunos,local):
@@ -111,8 +118,6 @@ class ComparisonLists:
 	#-----------------------------------------------------------------------------------------------------
 	#comparação strings
 	#-----------------------------------------------------------------------------------------------------
-	# algoritmo desenvolvido por Simon White
-	#-----------------------------------------------------------------------------------------------------
 
 	def __comparar(self,dic):
 		'''
@@ -151,6 +156,10 @@ class ComparisonLists:
 		print('\n')
 		return cmp
 
+	#-----------------------------------------------------------------------------------------------------
+	# algoritmo desenvolvido por Simon White
+	#-----------------------------------------------------------------------------------------------------
+
 	def __get_bigrams(self,string):
 		"""
 		recebe uma string e retorna uma lista contendo os bigramas.
@@ -175,8 +184,13 @@ class ComparisonLists:
 		return (2.0 * hit_count) / union
 
 #-----------------------------------------------------------------------------------------------------
+# menu de escolha para usuario
+#-----------------------------------------------------------------------------------------------------
 
 def chooseOption():
+	'''
+	Fornece opcoes de execucao para o usuario, chamando os respectivos metodos escolhidos.
+	'''
 	print("Bem-vindo \n1 - Baixar Listas \n2 - Inspecionar cópias \n3 - Sair")
 	option = 0
 	while option > 3 or option < 1:
