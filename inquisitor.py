@@ -64,7 +64,7 @@ class ComparisonLists:
 			for person in dictionary:
 				print('{0}:'.format(person))
 				for plagiarist in dictionary[person]:
-					print(' #{0} - {1} | {2}'.format(plagiarist[0],plagiarist[1][0],plagiarist[1][1]))
+					print(' #{0} - {1} | {2}%'.format(plagiarist[0],plagiarist[1][0],plagiarist[1][1]))
 				print('\n')
 			print('-----------------------------------------------  FIM  ----------------------------------------------')
 		else:
