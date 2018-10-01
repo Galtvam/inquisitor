@@ -53,15 +53,22 @@ class ComparisonLists:
 	#funcionalidades complementares
 	#-----------------------------------------------------------------------------------------------------
 
-	def __imprimir(self,dicionario):
+	def __imprimir(self,dictionary):
 		'''
 		imprime o dicionario resultante da comparacao
 		'''
-		if len(dicionario) != 0:
-			for pessoa in dicionario:
-				print('{0} : {1}'.format(pessoa,dicionario[pessoa]))
+		if len(dictionary) != 0:
+			print('----------------------------------------------------------------------------------------------------')
+			print('--------------------------------------------   COPIAS   --------------------------------------------')
+			print('----------------------------------------------------------------------------------------------------\n')
+			for person in dictionary:
+				print('{0}:'.format(person))
+				for plagiarist in dictionary[person]:
+					print(' #{0} - {1} | {2}'.format(plagiarist[0],plagiarist[1][0],plagiarist[1][1]))
+				print('\n')
+			print('-----------------------------------------------  FIM  ----------------------------------------------')
 		else:
-			print("Não houveram cópias!")
+			print('Não houveram cópias!')
 
 
 	#-----------------------------------------------------------------------------------------------------
@@ -79,8 +86,9 @@ class ComparisonLists:
 				dic[dir_or_arquivo] = []
 				atividades = os.listdir(local + dir_or_arquivo)
 				for arquivo in atividades:
-					arq = open(local + dir_or_arquivo+'/'+str(arquivo),"r", encoding="utf8")
-					dic[dir_or_arquivo].append([str(arquivo[-8:-3]),ComparisonLists.__arqToList(self,arq)])
+					arquivo = ComparisonLists.__structuring(self,atividades,arquivo,local, dir_or_arquivo)
+					arq = open(local + dir_or_arquivo+'/'+arquivo,"r", encoding="utf8")
+					dic[dir_or_arquivo].append([arquivo[-8:-3],ComparisonLists.__arqToList(self,arq)])
 			else:
 				arq = open(local+dir_or_arquivo,"r", encoding="utf8")
 				listagem.append(ComparisonLists.__arqToList(self,arq))
@@ -114,6 +122,38 @@ class ComparisonLists:
 		if list_final[0] == "'''" or list_final[0] == '"""':
 			del list_final[0]
 		return list_final
+
+	#-----------------------------------------------------------------------------------------------------
+	#estruturacao dos arquivos
+	#-----------------------------------------------------------------------------------------------------
+
+	def __structuring(self,activities,archive,local, dir_or_arquivo):
+		'''
+		identifica os arquivos com nomes incompativeis com a estrutura do codigo solicitando ao usuario o numero
+		referente a questao , renomeando-o para um formato estruturado.
+		'''
+		num_list = local[-2:-1]
+		valid = True
+		for x in [
+					'l{0}-q1.py'.format(num_list), 
+					'l{0}-q2.py'.format(num_list), 
+					'l{0}-q3.py'.format(num_list), 
+					'l{0}-q4.py'.format(num_list), 
+					'l{0}-q5.py'.format(num_list)
+				]:
+			if x in archive:
+				valid = False
+				break
+		if valid == True:
+			correct_num_list = input('A qual questão corresponde este arquivo: {0} \n 1, 2, 3, 4 ou 5? '.format(archive))
+			os.rename(
+				local+dir_or_arquivo+'/'+archive,
+				local+dir_or_arquivo+'/'+'l{0}-q{1}.py'.format(num_list,correct_num_list)
+				)
+			return 'l{0}-q{1}.py'.format(num_list,correct_num_list)
+		else:
+			return archive
+
 
 	#-----------------------------------------------------------------------------------------------------
 	#comparação strings
