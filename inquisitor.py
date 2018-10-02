@@ -119,7 +119,7 @@ class ComparisonLists:
 					flag_add = False
 			if len(temp_list[linha]) != 0 and flag_add == True:
 				list_final.append(temp_list[linha])    
-		if list_final[0] == "'''" or list_final[0] == '"""':
+		if len(list_final) != 0 and (list_final[0] == "'''" or list_final[0] == '"""'):
 			del list_final[0]
 		return list_final
 
@@ -134,26 +134,28 @@ class ComparisonLists:
 		'''
 		num_list = local[-2:-1]
 		valid = True
-		for x in [
-					'l{0}-q1.py'.format(num_list), 
-					'l{0}-q2.py'.format(num_list), 
-					'l{0}-q3.py'.format(num_list), 
-					'l{0}-q4.py'.format(num_list), 
-					'l{0}-q5.py'.format(num_list)
-				]:
-			if x in archive:
-				valid = False
-				break
-		if valid == True:
-			correct_num_list = input('A qual questão corresponde este arquivo: {0} \n 1, 2, 3, 4 ou 5? '.format(archive))
-			os.rename(
-				local+dir_or_arquivo+'/'+archive,
-				local+dir_or_arquivo+'/'+'l{0}-q{1}.py'.format(num_list,correct_num_list)
-				)
-			return 'l{0}-q{1}.py'.format(num_list,correct_num_list)
-		else:
-			return archive
-
+		try:
+			for x in [
+						'l{0}-q1.py'.format(num_list), 
+						'l{0}-q2.py'.format(num_list), 
+						'l{0}-q3.py'.format(num_list), 
+						'l{0}-q4.py'.format(num_list), 
+						'l{0}-q5.py'.format(num_list)
+					]:
+				if x in archive:
+					valid = False
+					break
+			if valid == True:
+				correct_num_list = input('A qual questão corresponde este arquivo: {0} \n 1, 2, 3, 4 ou 5? '.format(archive))
+				os.rename(
+					local+dir_or_arquivo+'/'+archive,
+					local+dir_or_arquivo+'/'+'l{0}-q{1}.py'.format(num_list,correct_num_list)
+					)
+				return 'l{0}-q{1}.py'.format(num_list,correct_num_list)
+			else:
+				return archive
+		except:
+			ComparisonLists.__structuring(activities,archive,local, dir_or_arquivo)
 
 	#-----------------------------------------------------------------------------------------------------
 	#comparação strings
