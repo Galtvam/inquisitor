@@ -17,7 +17,7 @@ from classroom.utils import supress_module_print, print, input, input_int
 
 from datetime import datetime
 
-import httplib2
+import classroom.httplib2 as httplib2
 import os
 
 class PlagiarismCheckerApplication:

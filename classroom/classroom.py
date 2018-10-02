@@ -12,7 +12,7 @@ Copyright(c) 2018 Igor Fernandes Carneiro
 '''
 
 from classroom.googleapiclient.discovery import build
-from httplib2 import Http
+from classroom.httplib2 import Http
 from classroom.googleapiclient.http import MediaIoBaseDownload
 from classroom.oauth2client import file, client, tools
 

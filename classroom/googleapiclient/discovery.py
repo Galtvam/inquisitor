@@ -17,8 +17,8 @@
 A client library for Google's discovery based APIs.
 """
 from __future__ import absolute_import
-import six
-from six.moves import zip
+import classroom.six.six as six
+from classroom.six.six.moves import zip
 
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 __all__ = [
@@ -28,9 +28,9 @@ __all__ = [
     'key2param',
     ]
 
-from six import BytesIO
-from six.moves import http_client
-from six.moves.urllib.parse import urlencode, urlparse, urljoin, \
+from classroom.six.six import BytesIO
+from classroom.six.six.moves import http_client
+from classroom.six.six.moves.urllib.parse import urlencode, urlparse, urljoin, \
   urlunparse, parse_qsl
 
 # Standard library imports
@@ -49,7 +49,7 @@ import os
 import re
 
 # Third-party imports
-import httplib2
+import classroom.httplib2 as httplib2
 import classroom.uritemplate as uritemplate
 
 # Local imports

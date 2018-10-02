@@ -19,19 +19,19 @@ object supporting an execute() method that does the
 actual HTTP request.
 """
 from __future__ import absolute_import
-import six
-from six.moves import http_client
-from six.moves import range
+import classroom.six.six as six
+from classroom.six.six.moves import http_client
+from classroom.six.six.moves import range
 
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
-from six import BytesIO, StringIO
-from six.moves.urllib.parse import urlparse, urlunparse, quote, unquote
+from classroom.six.six import BytesIO, StringIO
+from classroom.six.six.moves.urllib.parse import urlparse, urlunparse, quote, unquote
 
 import base64
 import copy
 import gzip
-import httplib2
+import classroom.httplib2
 import json
 import logging
 import mimetypes

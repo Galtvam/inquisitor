@@ -62,7 +62,7 @@ import uuid
 
 from classroom.googleapiclient import errors
 from classroom.googleapiclient import _helpers as util
-import six
+import classroom.six.six as six
 
 
 # The unix time epoch starts at midnight 1970.

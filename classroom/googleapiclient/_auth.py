@@ -14,7 +14,7 @@
 
 """Helpers for authentication using oauth2client or google-auth."""
 
-import httplib2
+import classroom.httplib2
 
 try:
     import google.auth

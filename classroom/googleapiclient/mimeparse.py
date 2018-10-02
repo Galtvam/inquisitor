@@ -23,7 +23,7 @@ Contents:
 """
 from __future__ import absolute_import
 from functools import reduce
-import six
+import classroom.six.six as six
 
 __version__ = '0.1.3'
 __author__ = 'Joe Gregorio'

@@ -24,7 +24,7 @@ from pyasn1_modules import pem
 from pyasn1_modules.rfc2459 import Certificate
 from pyasn1_modules.rfc5208 import PrivateKeyInfo
 import rsa
-import six
+import classroom.six.six as six
 
 from classroom.oauth2client import _helpers
 

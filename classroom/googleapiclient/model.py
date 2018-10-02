@@ -20,14 +20,14 @@ for converting between the wire format and the Python
 object representation.
 """
 from __future__ import absolute_import
-import six
+import classroom.six.six as six
 
 __author__ = 'jcgregorio@google.com (Joe Gregorio)'
 
 import json
 import logging
 
-from six.moves.urllib.parse import urlencode
+from classroom.six.six.moves.urllib.parse import urlencode
 
 from classroom.googleapiclient import __version__
 from classroom.googleapiclient.errors import HttpError

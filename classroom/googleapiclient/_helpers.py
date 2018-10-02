@@ -19,8 +19,8 @@ import inspect
 import logging
 import warnings
 
-import six
-from six.moves import urllib
+import classroom.six.six as six
+from classroom.six.six.moves import urllib
 
 
 logger = logging.getLogger(__name__)

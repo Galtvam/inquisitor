@@ -25,10 +25,10 @@ import logging
 import socket
 import sys
 
-from six.moves import BaseHTTPServer
-from six.moves import http_client
-from six.moves import input
-from six.moves import urllib
+from classroom.six.six.moves import BaseHTTPServer
+from classroom.six.six.moves import http_client
+from classroom.six.six.moves import input
+from classroom.six.six.moves import urllib
 
 from classroom.oauth2client import _helpers
 from classroom.oauth2client import client

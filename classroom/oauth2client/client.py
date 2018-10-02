@@ -28,9 +28,9 @@ import socket
 import sys
 import tempfile
 
-import six
-from six.moves import http_client
-from six.moves import urllib
+import classroom.six.six as six
+from classroom.six.six.moves import http_client
+from classroom.six.six.moves import urllib
 
 import classroom.oauth2client as oauth2client
 from classroom.oauth2client import _helpers

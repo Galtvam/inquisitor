@@ -57,7 +57,7 @@ For example, given the schema:
 The constructor takes a discovery document in which to look up named schema.
 """
 from __future__ import absolute_import
-import six
+import classroom.six.six as six
 
 # TODO(jcgregorio) support format, enum, minimum, maximum
 

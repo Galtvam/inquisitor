@@ -14,9 +14,9 @@
 
 import logging
 
-import httplib2
-import six
-from six.moves import http_client
+import classroom.httplib2 as httplib2
+import classroom.six.six as six
+from classroom.six.six.moves import http_client
 
 from classroom.oauth2client import _helpers
 
