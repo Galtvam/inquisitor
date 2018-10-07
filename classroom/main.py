@@ -155,6 +155,8 @@ class PlagiarismCheckerApplication:
     print("\nBaixando tarefas dos alunos...")
     print("Há num total de {0} submissões: \n".format(totalSubmissions))
 
+    cantDownloadFiles = {}
+
     for index, submission in enumerate(submissions):
       student = self.__get_student_by_id(submission['userId'], students)
       studentName = student['profile']['name']['fullName']
@@ -189,11 +191,24 @@ class PlagiarismCheckerApplication:
           filepath = self.__getCourseWorkFilePath(
             courseWorkName, studentName, filename
           )
-          self.__classroom.downloadFile(fileId, filepath)
+          try:
+            self.__classroom.downloadFile(fileId, filepath)
+          except:
+            if not studentName in cantDownloadFiles:
+              cantDownloadFiles[studentName] = []
+            cantDownloadFiles[studentName].append(filename)
+            print("   Não foi possível baixar o arquivo: '{0}'!".format(filename))
 
       print()
 
     print("Download das tarefas concluída!")
+
+    if len(cantDownloadFiles) > 0:
+      print("Os anexos dos seguintes alunos não puderam ser baixados: \n")
+      for studentName in cantDownloadFiles:
+        print("{0}:".format(studentName))
+        for index, filename in enumerate(cantDownloadFiles[studentName]):
+          print("   {0} - '{1}'".format(index + 1, filename))
 
   def __getCourseWorkDir(self, courseWorkName):
     downloadDir = os.path.realpath(PlagiarismCheckerApplication.__DOWNLOAD_DIR)
