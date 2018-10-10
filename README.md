@@ -24,7 +24,7 @@ Como utilizar:
     2.1. Reconhecimento de mudanças:
         - O programa possui a capacidade de detectar alterações em nomes de variáveis ou textos, avaliando a similiaridade entre os comandos utilizados linha-a-linha.
         - Mesmo que o usuário inverta ordens de execução dos comandos o programa identificará.
-        - Desconsideras docstrings e comentários
+        - Desconsidera docstrings e comentários
         
 Problemas conhecidos:
  - Quando a atividade Lista 4(versão 2) for baixada deve ser renomeada para Lista 4 caso contrario acarreterá em quebra de execução.
