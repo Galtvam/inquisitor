@@ -13,6 +13,7 @@ Como utilizar:
         - Seu navegador se abrirá solicitando autorização de acesso na sua conta do Google
         - Você deverá escolher em qual turma do classroom ele deve listar as atividades
         - Escolha a lista para ser baixada e o download será automaticamente iniciado
+          Obs: Todas as listas baixadas se encontraram na pasta classroom/ClasssWorks/
     
     1.2. Inspecionar Listas:
         - Você deverá escolher qual lista deve ser inspecionada
