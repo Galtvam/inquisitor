@@ -17,6 +17,7 @@ Como utilizar:
     
     1.2. Inspecionar Listas:
         - Você deverá escolher qual lista deve ser inspecionada
+        - Caso existam arquivos nomeadas fora do padrão l#-q#.py (onde o # corresponde a um número) será solicitado ao inspetor o número correto da questão a qual está associado o respectivo arquivo.
         - Ao fim da verificação o programa te informará uma listagem com os nomes do produtor da lista, juntamente terá o a lista plagiada e o nome do plagiador. (Obs: O programa retornará uma porcentagem, ocasionalmente ocorrem Falsos-Positivos)
         
   2. Habilidades:
