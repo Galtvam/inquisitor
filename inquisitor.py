@@ -183,13 +183,13 @@ class ComparisonLists:
 								for linha1 in lista_p1[1]:
 									for linha2 in lista_p2[1]:
 										percent = ComparisonLists.__string_similarity(self,linha1,linha2)
-										if percent >= 0.7:
+										if percent >= 0.75:
 											cont += 1
 											break
 
 								tam = len(lista_p1[1]) if len(lista_p1[1]) > len(lista_p2[1]) else len(lista_p2[1])
 								igualdade = cont/tam
-								if igualdade >= 0.7:
+								if igualdade >= 0.75:
 									cmp[pessoa1].append((lista_p1[0],(pessoa2, round(igualdade*100,2))))
 							else:
 								pass
